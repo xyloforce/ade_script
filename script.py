@@ -10,6 +10,7 @@ dl=requests.get(url)
 open('/tmp/cal.ics', 'wb').write(dl.content)
 calendar_file=open("/tmp/cal.ics")
 calendar=icalendar.Calendar.from_ical(calendar_file.read())
+calendar_file.close()
 # create new calendar to save valid events
 calendar_corrected=icalendar.Calendar()
 calendar_corrected.add('prodid', '-//My calendar product//mxm.dk//')
